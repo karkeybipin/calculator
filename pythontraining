@@ -1,0 +1,223 @@
+# Python Basics Tutorial
+
+# Section 1: Variables and Data Types
+# ------------------------------------
+# Variables store data values
+
+# Integer
+import unittest
+import re
+import datetime
+import json
+import random
+import math
+age = 25
+print("Age:", age)
+
+# Float
+height = 5.9
+print("Height:", height)
+
+# String
+name = "Bipin"
+print("Name:", name)
+
+# Boolean
+is_student = True
+print("Is Student:", is_student)
+
+# Section 2: Lists
+# ----------------
+# Lists store multiple items in a single variable
+
+fruits = ["apple", "banana", "cherry"]
+print("Fruits:", fruits)
+
+# Accessing list items
+print("First fruit:", fruits[0])
+
+# Adding items to the list
+fruits.append("orange")
+print("Fruits after adding:", fruits)
+
+# Removing an item
+fruits.remove("banana")
+print("Fruits after removing banana:", fruits)
+
+# Section 3: Tuples
+# -----------------
+# Tuples are immutable lists
+
+coordinates = (10, 20)
+print("Coordinates:", coordinates)
+
+# Accessing tuple items
+print("X coordinate:", coordinates[0])
+
+# Section 4: Dictionaries
+# -----------------------
+# Dictionaries store data in key-value pairs
+
+person = {
+    "name": "Bipin",
+    "age": 25,
+    "country": "Nepal"
+}
+print("Person Dictionary:", person)
+
+# Accessing dictionary values
+print("Name:", person["name"])
+
+# Adding a new key-value pair
+person["job"] = "Software Engineer"
+print("Updated Person Dictionary:", person)
+
+# Section 5: Conditionals
+# -----------------------
+# Using if, elif, else for decision-making
+
+x = 10
+y = 20
+
+if x < y:
+    print("x is less than y")
+elif x == y:
+    print("x is equal to y")
+else:
+    print("x is greater than y")
+
+for fruit in fruits:
+    print("Fruit:", fruit)
+
+count = 0
+while count < 5:
+    print("Count:", count)
+    count += 1
+
+
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Bipin"))
+
+def add_numbers(a, b):
+    return a + b
+
+result = add_numbers(5, 7)
+print("Sum of numbers:", result)
+
+class Dog:
+    # Constructor
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # Method to return dog's details
+    def get_details(self):
+        return f"{self.name} is {self.age} years old"
+
+
+# Creating an instance of the Dog class
+dog1 = Dog("Buddy", 3)
+print(dog1.get_details())
+
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return f"{self.name} makes a sound"
+
+
+class Cat(Animal):
+    def speak(self):
+        return f"{self.name} meows"
+
+
+animal = Animal("Animal")
+cat = Cat("Whiskers")
+
+print(animal.speak())
+print(cat.speak())
+
+try:
+    num = int(input("Enter a number: "))
+    print("You entered:", num)
+except ValueError:
+    print("Invalid input, please enter a valid number.")
+
+with open("example.txt", "w") as file:
+    file.write("Hello, this is a file.\n")
+
+with open("example.txt", "r") as file:
+    content = file.read()
+    print("File Content:\n", content)
+
+num = 16
+print("Square root of 16:", math.sqrt(num))
+
+# Using random module to generate a random number
+print("Random number:", random.randint(1, 10))
+
+def add(x, y): return x + y
+
+
+print("Sum using lambda:", add(2, 3))
+
+numbers = [x for x in range(10)]
+print("List of numbers:", numbers)
+
+def count_up_to(max):
+    count = 1
+    while count <= max:
+        yield count
+        count += 1
+
+
+counter = count_up_to(5)
+for num in counter:
+    print("Generated number:", num)
+
+
+
+def decorator_function(original_function):
+    def wrapper_function():
+        print("Wrapper executed before", original_function.__name__)
+        return original_function()
+    return wrapper_function
+
+
+@decorator_function
+def display():
+    print("Display function ran")
+
+
+display()
+
+person_dict = {"name": "Bipin", "age": 25, "job": "Software Engineer"}
+person_json = json.dumps(person_dict)
+print("JSON String:", person_json)
+
+person_data = json.loads(person_json)
+print("Python Dictionary from JSON:", person_data)
+
+now = datetime.datetime.now()
+print("Current Date and Time:", now)
+
+formatted_date = now.strftime("%Y-%m-%d %H:%M:%S")
+print("Formatted Date:", formatted_date)
+text = "The rain in Spain stays mainly in the plain."
+pattern = r"ain"
+matches = re.findall(pattern, text)
+print("Matches found:", matches)
+
+
+def add(a, b):
+    return a + b
+
+class TestMathFunctions(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(add(2, 3), 5)
+
+if __name__ == "__main__":
+    unittest.main()
